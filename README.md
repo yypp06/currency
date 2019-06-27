@@ -6,3 +6,4 @@
 ## 1.串接 https://docs.openexchangerates.org/ 即時匯率 api，需註冊拿取 app id
 ## 2.國旗 icon https://emojipedia.org/flag-for-united-states/
 ## 3.reLoad icon https://fontawesome.com/icons?d=gallery
+## 4.api 串接方法使用 axios
