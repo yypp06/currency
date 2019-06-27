@@ -6,40 +6,172 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue@2.4.2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/5bf146f584.js"></script>
+
     <style>
-      #app{
-        font-size: 40px;
+      body{
+          font-family: '微軟正黑體', Arial, sans-serif;
+          font-size: 18px;
+          color: #a0a0a0;
+          line-height: 1.6em;
+          width: 100%;
+          height: 100%;
+          text-align: center;
       }
-    
-    
+      .wrapper {
+          width: 100%;
+          height: auto;
+      }
+      .banner {
+          height: 23vh;
+          width: 100%;
+          background: linear-gradient(0.25turn, #8F7BE7, #F472AE);
+          ;
+          color: white;
+      }
+      .main {
+          height: auto;
+          min-height: 100vh;
+          width: 100%;
+          background-color: #3C4668;
+          color: white;
+          overflow-y: auto;
+      }
+      .item {
+          height: 80px;
+          width: 100%;
+          background-color: rgba(255,255,255,0.2);
+          border-radius: 14px;
+          padding: 1.5rem;
+          text-align: left;
+      }
+      .flag{
+          font-size: 36px;
+          line-height: 36px;
+      }
+      .ibox {
+          padding: 3rem 2rem;
+      }
+      .ibox-content {
+
+      }
+      .btn-circle {
+          width: 30px;
+          height: 30px;
+          padding: 6px 0px;
+          border-radius: 15px;
+          text-align: center;
+          font-size: 12px;
+          line-height: 1.42857;
+      }
+      .btn-circle.btn-xl {
+          width: 70px;
+          height: 70px;
+          padding: 10px 16px;
+          border-radius: 35px;
+          font-size: 24px;
+          line-height: 1.33;
+      }
+      
+      
     </style>
     <title>vue</title>
   </head>
   <body>
-    <div id="app" class="container"> 
-      <div class="col" v-for="(item, index) in info" :key="index">
-          <div class="col badge badge-secondary" v-if="index == 'HKD'">🇭🇰 港幣 {{item}}</div>
-          <div class="col" v-if="index == 'GBP'">🇬🇧 英鎊  {{item}}</div>
-          <div class="col" v-if="index == 'AUD'">🇦🇺 澳幣{{item}}</div>
-          <div class="col" v-if="index == 'SGD'">🇸🇬 新加坡幣{{item}}</div>
-          <div class="col" v-if="index == 'CHF'">🇨🇭 瑞士法郎{{item}}</div>
-          <div class="col" v-if="index == 'JPY'">🇯🇵 日幣{{item}}</div>
-          <div class="col" v-if="index == 'NZD'">🇳🇿 紐幣{{item}}</div>
-          <div class="col" v-if="index == 'THB'">🇹🇭 泰幣{{item}}</div>
-          <div class="col" v-if="index == 'EUR'">🇪🇺 歐元{{item}}</div>
-          <div class="col" v-if="index == 'MYR'">🇲🇾 馬來西亞幣{{item}}</div>
-      </div>
-      
-    </div>
+    <div class="banner">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-12  ">
+                            <form class="form-inline">
+                                <div class="form-group mb-2 col-12 p-0">
+                                    <label for="rate" class="col-sm-12 mb-4">Currency 匯率</label>
+                                    <div class="col-10 p-0">
+                                        <div class="col item p-m">
+                                            <span class="flag float-left mr-1">🇺🇸 </span>
+                                            <span class="mr-1">美金</span>
+                                            <span>USD ＄1</span>
+                                        </div>
+                                    </div>
+                                    <dov class="col-2">
+                                      <button class="btn btn-circle btn-xl btn-primary float-right"><i class="fas fa-sync-alt"></i></button>
+                                    </dov>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="app" class="main">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div v-for="(item, index) in info" :key="index">
+                        <div class="col-12 p-0 mb-2"  v-if="index == 'AUD'">
+                            <div class="col item p-m">
+                                <span class="flag float-left mr-1"> 🇦🇺</span>
+                                <span class="mr-1">澳幣</span>
+                                <span class="mr-1">AUD</span>
+                                <span>${{item}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 p-0 mb-2"  v-if="index == 'HKD'">
+                            <div class="col item p-m">
+                                <span class="flag float-left mr-1">🇭🇰</span>
+                                <span class="mr-1">港幣</span>
+                                <span class="mr-1">HKD</span>
+                                <span>${{item}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 p-0 mb-2">
+                            <div class="col item p-m" v-if="index == 'GBP'">
+                                <span class="flag float-left mr-1">🇬🇧</span>
+                                <span class="mr-1">英鎊</span>
+                                <span class="mr-1">GBP</span>
+                                <span>${{item}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 p-0 mb-2">
+                            <div class="col item p-m" v-if="index == 'NZD'">
+                                <span class="flag float-left mr-1">🇳🇿</span>
+                                <span class="mr-1">紐幣</span>
+                                <span class="mr-1">NZD</span>
+                                <span>${{item}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 p-0 mb-2">
+                            <div class="col item p-m" v-if="index == 'EUR'">
+                                <span class="flag float-left mr-1">🇪🇺</span>
+                                <span class="mr-1">歐元</span>
+                                <span class="mr-1">EUR</span>
+                                <span>${{item}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 p-0 mb-2">
+                            <div class="col item p-m" v-if="index == 'JPY'">
+                                <span class="flag float-left mr-1">🇯🇵</span>
+                                <span class="mr-1">日幣</span>
+                                <span class="mr-1">JPY</span>
+                                <span>${{item}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
        
     <script>
-      var  = 'https://openexchangerates.org/api/latest.json?app_id=a09f8625608c4858a3b6236d340a1424'
+      var api = 'https://openexchangerates.org/api/latest.json?app_id=a09f8625608c4858a3b6236d340a1424'
       var app = new Vue({
         el: '#app',
         data () {
+          num: null
+          twd: null
+          usd: null
+          result: []
           return {
             info: []
           }
@@ -47,13 +179,19 @@
         mounted () {
           axios
             .get(api)
-            .then(res =>{(this.info = res.data.rates);
-              console.log(res.data.rates)
+            .then(res =>{
+              (this.info = res.data.rates);
+              (this.twd =res.data.rates.TWD);
+              (this.usd =res.data.rates.USD);
+              console.log(this.usd)
+
           }).catch(err => {
               console.log(err);
           })
 
         }
+       
+
       })
      </script>
   </body>
