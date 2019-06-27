@@ -7,3 +7,5 @@
 ## 2.國旗 icon https://emojipedia.org/flag-for-united-states/
 ## 3.reLoad icon https://fontawesome.com/icons?d=gallery
 ## 4.api 串接方法使用 axios
+
+小備： 預計優化取小數點後三位
