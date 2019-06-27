@@ -26,7 +26,7 @@
           height: auto;
       }
       .banner {
-          height: 23vh;
+          height: 30vh;
           width: 100%;
           background: linear-gradient(0.25turn, #8F7BE7, #F472AE);
           ;
@@ -81,99 +81,99 @@
     <title>vue</title>
   </head>
   <body>
-    <div class="banner">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-12  ">
-                            <form class="form-inline">
-                                <div class="form-group mb-2 col-12 p-0">
-                                    <label for="rate" class="col-sm-12 mb-4">Currency 匯率</label>
-                                    <div class="col-10 p-0">
-                                        <div class="col item p-m">
-                                            <span class="flag float-left mr-1">🇺🇸 </span>
-                                            <span class="mr-1">美金</span>
-                                            <span>USD ＄1</span>
-                                        </div>
+    <div id="app">
+      <div class="banner">
+        <div class="ibox">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-12" id="num">
+                        <form class="form-inline">
+                            <div class="form-group mb-2 col-12 p-0">
+                                <label for="rate" class="col-sm-12 mb-4">Currency 匯率</label>
+                                <div class="col-md-10 p-0">
+                                    <div class="col item p-m">
+                                        <span class="flag float-left mr-1">🇺🇸 </span>
+                                        <span class="mr-1">美金 USD $</span>
+                                        <input type="text" v-model="message" number placeholder="1" style="width: 100px">
                                     </div>
-                                    <dov class="col-2">
-                                      <button class="btn btn-circle btn-xl btn-primary float-right"><i class="fas fa-sync-alt"></i></button>
-                                    </dov>
                                 </div>
-                            </form>
+                                <div class="col-md-2">
+                                  <button class="btn btn-circle btn-xl btn-primary float-right"><i class="fas fa-sync-alt"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="ibox">
+            <div class="ibox-content">
+                <div v-for="(item, index) in info" :key="index">
+                    <div class="col-12 p-0 mb-2"  v-if="index == 'AUD'">
+                        <div class="col item p-m">
+                            <span class="flag float-left mr-1"> 🇦🇺</span>
+                            <span class="mr-1">澳幣</span>
+                            <span class="mr-1">AUD</span>
+                            <span>${{item * message}}</span>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 mb-2"  v-if="index == 'HKD'">
+                        <div class="col item p-m">
+                            <span class="flag float-left mr-1">🇭🇰</span>
+                            <span class="mr-1">港幣</span>
+                            <span class="mr-1">HKD</span>
+                            <span>${{item * message}}</span>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 mb-2">
+                        <div class="col item p-m" v-if="index == 'GBP'">
+                            <span class="flag float-left mr-1">🇬🇧</span>
+                            <span class="mr-1">英鎊</span>
+                            <span class="mr-1">GBP</span>
+                            <span>${{item * message}}</span>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 mb-2">
+                        <div class="col item p-m" v-if="index == 'NZD'">
+                            <span class="flag float-left mr-1">🇳🇿</span>
+                            <span class="mr-1">紐幣</span>
+                            <span class="mr-1">NZD</span>
+                            <span>${{item * message}}</span>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 mb-2">
+                        <div class="col item p-m" v-if="index == 'EUR'">
+                            <span class="flag float-left mr-1">🇪🇺</span>
+                            <span class="mr-1">歐元</span>
+                            <span class="mr-1">EUR</span>
+                            <span>${{item * message}}</span>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 mb-2">
+                        <div class="col item p-m" v-if="index == 'JPY'">
+                            <span class="flag float-left mr-1">🇯🇵</span>
+                            <span class="mr-1">日幣</span>
+                            <span class="mr-1">JPY</span>
+                            <span>${{item * message}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <div id="app" class="main">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div v-for="(item, index) in info" :key="index">
-                        <div class="col-12 p-0 mb-2"  v-if="index == 'AUD'">
-                            <div class="col item p-m">
-                                <span class="flag float-left mr-1"> 🇦🇺</span>
-                                <span class="mr-1">澳幣</span>
-                                <span class="mr-1">AUD</span>
-                                <span>${{item}}</span>
-                            </div>
-                        </div>
-                        <div class="col-12 p-0 mb-2"  v-if="index == 'HKD'">
-                            <div class="col item p-m">
-                                <span class="flag float-left mr-1">🇭🇰</span>
-                                <span class="mr-1">港幣</span>
-                                <span class="mr-1">HKD</span>
-                                <span>${{item}}</span>
-                            </div>
-                        </div>
-                        <div class="col-12 p-0 mb-2">
-                            <div class="col item p-m" v-if="index == 'GBP'">
-                                <span class="flag float-left mr-1">🇬🇧</span>
-                                <span class="mr-1">英鎊</span>
-                                <span class="mr-1">GBP</span>
-                                <span>${{item}}</span>
-                            </div>
-                        </div>
-                        <div class="col-12 p-0 mb-2">
-                            <div class="col item p-m" v-if="index == 'NZD'">
-                                <span class="flag float-left mr-1">🇳🇿</span>
-                                <span class="mr-1">紐幣</span>
-                                <span class="mr-1">NZD</span>
-                                <span>${{item}}</span>
-                            </div>
-                        </div>
-                        <div class="col-12 p-0 mb-2">
-                            <div class="col item p-m" v-if="index == 'EUR'">
-                                <span class="flag float-left mr-1">🇪🇺</span>
-                                <span class="mr-1">歐元</span>
-                                <span class="mr-1">EUR</span>
-                                <span>${{item}}</span>
-                            </div>
-                        </div>
-                        <div class="col-12 p-0 mb-2">
-                            <div class="col item p-m" v-if="index == 'JPY'">
-                                <span class="flag float-left mr-1">🇯🇵</span>
-                                <span class="mr-1">日幣</span>
-                                <span class="mr-1">JPY</span>
-                                <span>${{item}}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
+    
        
     <script>
       var api = 'https://openexchangerates.org/api/latest.json?app_id=a09f8625608c4858a3b6236d340a1424'
       var app = new Vue({
         el: '#app',
         data () {
-          num: null
-          twd: null
-          usd: null
-          result: []
           return {
-            info: []
+            info: [],
+            message: 1
           }
         },
         mounted () {
@@ -181,18 +181,13 @@
             .get(api)
             .then(res =>{
               (this.info = res.data.rates);
-              (this.twd =res.data.rates.TWD);
-              (this.usd =res.data.rates.USD);
-              console.log(this.usd)
 
           }).catch(err => {
               console.log(err);
           })
-
         }
-       
-
       })
+
      </script>
   </body>
 </html>
